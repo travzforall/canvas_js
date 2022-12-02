@@ -57,7 +57,12 @@ const checks = $.ajax({
                     if(obj.level == 2){
 
                     }
-                    li.innerHTML = obj.id + ': ' + obj.list
+                    var a = document.createElement('a'); 
+                    a.innerHTML = obj.list
+                    a.href  = `../keyword.html?id=${obj.id}`
+
+
+                    li.appendChild(a)
                     
 
                     ul.appendChild(li)
@@ -96,7 +101,9 @@ $(document).ready(function () {
    
  
         createButton()
-            console.log(76767676) 
+           
+        
+        console.log(24234234, window.location.search) 
  
 
  
