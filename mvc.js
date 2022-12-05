@@ -411,16 +411,65 @@ function loadCss() {
 
 function newButtonList(list) {
     arr = []
+    var window = document.createElement('div');
+    window.classList.add('w-3/4', 'flex', 'justify-between', 'bg-red-400', 'rounded-xl')
+
     list.forEach(el => {
         var button = document.createElement('button');
 
         button.classList.add('btn', 'btn-primary')
         button.innerHTML = el ;
-        document.getElementById('list').appendChild(button); 
+        window.appendChild(button); 
 
         arr.push(button)
     })
 
+    document.getElementById('list').append(window)
+
     
     return arr;
+}
+
+function newCard() {
+
+    var window = document.createElement('div');
+    window.classList.add('card', 'card-compact', 'w-96', 'bg-base-100', 'shadow-xl')
+
+    var figure = document.createElement('figure');
+    var img = document.createElement('img');
+    img.src = "https://placeimg.com/400/225/arch";
+    img.alt = "Shoes";
+
+    figure.appendChild(img)
+    window.appendChild(figure)
+
+
+    var card_body = document.createElement('div');
+    card_body.classList.add('card-body');
+
+    var card_title = document.createElement('h2');
+    card_title.classList.add('card-title');
+    card_title.innerHTML = "Shoes"
+    card_body.appendChild(card_title)
+
+    
+    var paragraph = document.createElement('p'); 
+    paragraph.innerHTML = "If a dog chews shoes whose shoes does he choose?"
+    card_body.appendChild(paragraph)
+
+
+    var card_actions = document.createElement('div');
+    card_actions.classList.add('card-actions', 'justify-end');
+   
+   
+    var button = document.createElement('button'); 
+        button.classList.add('btn', 'btn-primary')
+        button.innerHTML = "Buy Now" ; 
+        card_actions.appendChild(button)
+        card_body.appendChild(card_actions)
+        window.appendChild(card_body)
+
+
+    document.getElementById('list').append(window)
+
 }

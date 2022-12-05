@@ -1,6 +1,6 @@
 
 var DT_variables = { 
-    path: 'https://cdn.statically.io/gh/travzforall/canvas_js/nb2/mvc.js', 
+    path: 'https://cdn.statically.io/gh/travzforall/canvas_js/nb5/mvc.js', 
 };
  
 
@@ -29,12 +29,19 @@ Object.defineProperty(String.prototype, 'capitalize', {
 
         $(document).ready(function() {
 			
+            setTimeout(() => {
+   
+                $.getScript( DT_variables.path, function(jd) {
+                    // Call custom function defined in script
+                    loadCss();
+                    newButtonList(['First', 'Second', 'Third'])
+                 }); 
          
-               $.getScript( DT_variables.path, function(jd) {
-                  // Call custom function defined in script
-                  loadCss();
-                  newButtonList(['First', 'Second', 'Third'])
-               }); 
+                    
+        
+            }, 2000)   
+         
+               
 				
          });
  
