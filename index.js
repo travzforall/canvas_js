@@ -1,6 +1,6 @@
 
 var DT_variables = { 
-    path: 'https://cdn.statically.io/gh/travzforall/canvas_js/main/mvc.js', 
+    path: 'https://cdn.statically.io/gh/travzforall/canvas_js/nb1/mvc.js', 
 };
  
 
@@ -33,6 +33,7 @@ Object.defineProperty(String.prototype, 'capitalize', {
                $.getScript( DT_variables.path, function(jd) {
                   // Call custom function defined in script
                   loadCss();
+                  newButtonList('First', 'Second', 'Third')
                }); 
 				
          });
@@ -60,9 +61,9 @@ Object.defineProperty(String.prototype, 'capitalize', {
       
       
       // call the function...
-      loadScript(DT_variables.path, function(data) {
-        console.log(loadCSS()); 
-      });
+    //   loadScript(DT_variables.path, function(data) {
+    //     console.log(loadCSS()); 
+    //   });
  
 
  

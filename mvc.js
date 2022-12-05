@@ -405,3 +405,22 @@ function loadCss() {
     document.getElementsByTagName('HEAD')[0].appendChild(script); 
     console.log("CSS Added")
 }
+
+
+
+
+function newButtonList(list) {
+    arr = []
+    list.forEach(el => {
+        var button = document.createElement('button');
+
+        button.classList.add('btn', 'btn-primary')
+        button.innerHTML = "stylesheet" ;
+        document.getElementById('list').appendChild(button); 
+
+        arr.push(button)
+    })
+
+    
+    return arr;
+}
