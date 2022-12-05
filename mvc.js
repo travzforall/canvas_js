@@ -415,7 +415,7 @@ function newButtonList(list) {
         var button = document.createElement('button');
 
         button.classList.add('btn', 'btn-primary')
-        button.innerHTML = "stylesheet" ;
+        button.innerHTML = el ;
         document.getElementById('list').appendChild(button); 
 
         arr.push(button)
