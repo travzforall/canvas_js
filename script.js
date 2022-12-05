@@ -177,7 +177,7 @@ function createButton() {
         },
         {
             name: 'Keywords',
-            url: '/keywords.html',
+            url: '/keywords.html#/keywords',
         },
         {
             name: 'Questions',

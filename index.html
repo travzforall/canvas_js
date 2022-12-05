@@ -8,14 +8,105 @@
     <script src=
     "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
         </script> 
+
+        <script src="./mvc.js"></script>
 </head>
 <body>
     <div class="w-full bg-gray-400 py-5  border-b-4 border-gray-700">
         <div class="flex justify-between w-3/4 mx-auto" id="menu-buttons"></div>
      
          </div>
-    <h4 class="text-center">Home</h4>
 
+   
+
+
+         <!-- <h3>Navigation Links</h3>
+         <div>
+            <a href="index.html#/home1">Home</a>
+            <a href="index.html#/home2">Home 2</a>
+            <a href="index.html#/home3">Home 3</a>
+            <a href="index.html#/home/{{id}}/{{type}}">Home 4</a>
+            <a href="index.html#/home5">Home 5</a>
+         </div> -->
+
+
+    <!-- <h4 class="text-center">Home</h4>
+    <h4>View</h4> -->
+    <div view></div>
+
+    <script>
+        jsMvc.AddRoute(HomeController, 'home/{{Message}}', 'home.html')  
+
+        jsMvc.AddRoute(KeywordsController, 'keywords', 'stat.html') 
+        jsMvc.AddRoute(TimelineController, 'timeline', 'timeline.html') 
+        jsMvc.Initialize()
+
+
+ 
+     
+        function HomeController(view, model)
+        {  
+            view.isAsync = true;
+            // model.Message = "result"
+            // var query = escape('select item from weather.forecast where location="' + cityCode + '"'),
+            // url = "https://baserow.thejollytech.com/api/database/rows/table/692/1/?user_field_names=true";
+
+
+            $.ajax({  
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader('Authorization', 'Token BBNXYdXuHymPfGwpuBWasy5JaGavmynT');
+                },
+                type: "GET",
+                url: "https://baserow.thejollytech.com/api/database/rows/table/695/1/?user_field_names=true",
+
+                success: function (result) {
+
+
+                    if (result != "Error") {
+
+          console.log( result)
+                        model.Message = JSON.stringify(result.Program[0].value)
+                     
+                        view.render();
+
+                    } else {
+                        console.log('Invalid username or password');
+                    }
+                },
+                error: function (req, status, error) {
+
+                    alert(error);
+                } 
+            });
+
+            // $.getJSON(url, function (data)
+            // {
+
+            //     console.log(data)
+
+            //     if (data) {
+            //         model.Title = data.query.results.channel.item.title;
+            //         model.Date = data.query.results.channel.item.pubDate;
+            //         model.Longitude = data.query.results.channel.item.lat;
+            //         model.Latitude = data.query.results.channel.item.long;
+            //         model.Description = data.query.results.channel.item.description;
+
+            //         
+            //     }
+            // });
+
+        }
+
+
+
+        function KeywordsController(model) {
+            model.Keywords = 'Keywords'
+        }
+
+        function TimelineController(model) {
+            model.Timeline = 'Timeline'
+        }
+    </script>
 
 
 
