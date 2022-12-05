@@ -390,6 +390,6 @@
 
 
 
-export function loadCss() {
+function loadCss() {
     console.log(1243434343554545)
 }
