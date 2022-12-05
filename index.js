@@ -1,6 +1,6 @@
 
 var DT_variables = { 
-    path: 'https://cdn.jsdelivr.net/gh/travzforall/canvas_js@main/mvc.js', 
+    path: 'https://cdn.statically.io/gh/travzforall/canvas_js/main/mvc.js', 
 };
  
 
