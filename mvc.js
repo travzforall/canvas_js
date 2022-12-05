@@ -1,9 +1,13 @@
 
-console.log(76677657655576557557557576765755)
+
 
 
 ;
 (function ( w, d, undefined ) {
+
+    console.log(76677657655576557557557576765755)
+
+
     //Flag to indicate if the Mvc manager object can start functioning or not
     var _start = false;
     
@@ -136,7 +140,7 @@ console.log(76677657655576557557557576765755)
 
 
     function createCourseInfo(data) {
-        console.log(67676767, data)
+        console.log(10000000000000, data)
     }
 
     //Funcion that returns array by splitting hash parts
