@@ -1,6 +1,6 @@
 
 var DT_variables = { 
-    path: 'https://cdn.statically.io/gh/travzforall/canvas_js/nb5/mvc.js', 
+    path: 'https://cdn.statically.io/gh/travzforall/canvas_js/nb6/mvc.js', 
 };
  
 
@@ -35,6 +35,7 @@ Object.defineProperty(String.prototype, 'capitalize', {
                     // Call custom function defined in script
                     loadCss();
                     newButtonList(['First', 'Second', 'Third'])
+                    newCard()
                  }); 
          
                     
