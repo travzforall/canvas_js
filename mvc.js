@@ -390,6 +390,18 @@
 
 
 
-function loadCss() {
-    console.log(true)
+function loadCss() { 
+    var script = document.createElement('script');
+    var link = document.createElement('link');
+
+    link.href = "https://cdn.jsdelivr.net/npm/daisyui@2.31.0/dist/full.css";
+    link.rel = "stylesheet"
+    link.type = "text/css"
+    script.src = 'https://cdn.tailwindcss.com/3.1.4';
+
+    // Get HTML head element to append
+    // script element to it
+    document.getElementsByTagName('HEAD')[0].appendChild(link); 
+    document.getElementsByTagName('HEAD')[0].appendChild(script); 
+    console.log("CSS Added")
 }
