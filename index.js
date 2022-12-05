@@ -1,6 +1,6 @@
 
 var DT_variables = { 
-    path: 'https://cdn.statically.io/gh/travzforall/canvas_js/nb6/mvc.js', 
+    path: 'https://cdn.statically.io/gh/travzforall/canvas_js/n7/mvc.js', 
 };
  
 
@@ -29,18 +29,20 @@ Object.defineProperty(String.prototype, 'capitalize', {
 
         $(document).ready(function() {
 			
-            setTimeout(() => {
+            
    
                 $.getScript( DT_variables.path, function(jd) {
                     // Call custom function defined in script
                     loadCss();
+                    setTimeout(() => {
                     newButtonList(['First', 'Second', 'Third'])
                     newCard()
+                }, 2000)
                  }); 
          
                     
         
-            }, 2000)   
+               
          
                
 				
