@@ -65,7 +65,13 @@
                     if (result != "Error") {
 
           console.log( result)
-                        model.Message = JSON.stringify(result.Program[0].value)
+                        model.Message = JSON.stringify(result)
+                        model.Program = result.Program[0].value
+                        model.Message = result.Program[0].value
+                        model.Message = result.Program[0].value
+                        model.Message = result.Program[0].value
+                        model.Message = result.Program[0].value
+                        model.Message = result.Program[0].value
                      
                         view.render();
 
