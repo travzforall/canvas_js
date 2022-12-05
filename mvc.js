@@ -5,7 +5,7 @@
 ;
 (function ( w, d, undefined ) {
 
-    console.log(76677657655576557557557576765755)
+    console.log("Hi there I'm Paul")
 
 
     //Flag to indicate if the Mvc manager object can start functioning or not
