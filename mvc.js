@@ -430,19 +430,7 @@ function newButtonList(list) {
     return arr;
 }
 
-function newCard() {
-
-//     <div class="card card-compact w-96 bg-base-100 shadow-xl">
-//   <figure><img src="https://placeimg.com/400/225/arch" alt="Shoes" /></figure>
-//   <div class="card-body">
-//     <h2 class="card-title">Shoes!</h2>
-//     <p>If a dog chews shoes whose shoes does he choose?</p>
-//     <div class="card-actions justify-end">
-//       <button class="btn btn-primary">Buy Now</button>
-//     </div>
-//   </div>
-// </div>
-
+function newCard() {  
     var window = document.createElement('div');
     window.classList.add('card', 'card-compact', 'w-1/3', 'bg-base-100', 'shadow-xl')
 
@@ -452,9 +440,7 @@ function newCard() {
     img.alt = "Shoes";
 
     figure.appendChild(img)
-    window.appendChild(figure)
-
-
+    window.appendChild(figure) 
     var card_body = document.createElement('div');
     card_body.classList.add('card-body');
 
@@ -465,6 +451,7 @@ function newCard() {
 
     
     var paragraph = document.createElement('p'); 
+
     paragraph.innerHTML = "If a dog chews shoes whose shoes does he choose?"
     card_body.appendChild(paragraph)
 
@@ -482,6 +469,268 @@ function newCard() {
 
         
 
-    document.getElementById('list').append(window)
+    return window;
 
 }
+
+function newTable(table) {  
+
+        const data_headers = ['name', 'age', 'number']
+    
+        var div = document.createElement('div');
+        div.classList.add('overflow-x-auto', 'relative')
+
+
+        var table = document.createElement('table');
+        table.classList.add('w-full', 'text-sm', 'text-left', 'text-gray-500', 'dark:text-gray-400')
+
+        
+        var thead = document.createElement('thead');
+        thead.classList.add('text-xs', 'text-gray-700', 'uppercase', 'bg-gray-50', 'dark:text-gray-400', 'dark:bg-gray-700')
+    
+        data_headers.forEach(header => {
+            var th = document.createElement('th');
+            th.scope = "col";
+            th.classList.add('py-3', 'px-6')
+            th.innerHTML = header;
+            thead.appendChild(th)
+        })
+
+        var tbody = document.createElement('tbody');
+        tbody.classList.add('text-xs', 'text-gray-700', 'uppercase', 'bg-gray-50', 'dark:text-gray-400', 'dark:bg-gray-700')
+    
+        data_headers.forEach(header => {
+            var th = document.createElement('th');
+            th.scope = "col";
+            th.classList.add('py-3', 'px-6')
+            th.innerHTML = header;
+            tbody.appendChild(th)
+        })
+
+        table.appendChild(thead)
+        table.appendChild(tbody)
+        div.appendChild(table)
+
+
+        var img = document.createElement('img');
+
+
+        return div;
+}
+
+ /* <div class="">
+    <table class="   ">
+        <thead class="    ">
+            <tr>
+                <th scope="col" class=" ">
+                    Product name
+                </th>
+                <th scope="col" class="py-3 px-6">
+                    Color
+                </th>
+                <th scope="col" class="py-3 px-6">
+                    Category
+                </th>
+                <th scope="col" class="py-3 px-6">
+                    Price
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    Apple MacBook Pro 17"
+                </th>
+                <td class="py-4 px-6">
+                    Sliver
+                </td>
+                <td class="py-4 px-6">
+                    Laptop
+                </td>
+                <td class="py-4 px-6">
+                    $2999
+                </td>
+            </tr>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    Microsoft Surface Pro
+                </th>
+                <td class="py-4 px-6">
+                    White
+                </td>
+                <td class="py-4 px-6">
+                    Laptop PC
+                </td>
+                <td class="py-4 px-6">
+                    $1999
+                </td>
+            </tr>
+            <tr class="bg-white dark:bg-gray-800">
+                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    Magic Mouse 2
+                </th>
+                <td class="py-4 px-6">
+                    Black
+                </td>
+                <td class="py-4 px-6">
+                    Accessories
+                </td>
+                <td class="py-4 px-6">
+                    $99
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div> */
+
+
+
+var data_checks = function() {
+    return_data = null;
+
+    $.ajax({
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader('Authorization', 'Token BBNXYdXuHymPfGwpuBWasy5JaGavmynT');
+        },
+        type: "GET",
+        url: "https://baserow.thejollytech.com/api/database/rows/table/692/1/?user_field_names=true",
+    
+        success: function (result) {
+    
+    
+            if (result != "Error") { 
+                    let retObj = {}
+                    result.Objectives.forEach((e, i) => {
+                
+                        retObj[e.value] = {
+                            id: e.value,
+                            list: result.objective_list[i].value,
+                            details: result.objective_list_detail_1[i].ids,
+                            level: result.objective_level[i].value.value,
+                        }
+                    }) 
+                    return_data = retObj; 
+                    // console.log(return_data)
+            } else {
+                console.log('Invalid username or password');
+            }
+        },
+        error: function (req, status, error) {
+    
+            alert(error);
+        }
+    });
+
+    return return_data;
+}
+ 
+
+async function loadData(data) {
+console.log(data)
+let return_data 
+    await $.ajax({
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader('Authorization', 'Token BBNXYdXuHymPfGwpuBWasy5JaGavmynT');
+        },
+        type: "GET",
+        url: "https://baserow.thejollytech.com/api/database/rows/table/696/?user_field_names=true",
+    
+        success: await function (result) {
+    
+            return result;
+            if (result != "Error") { 
+                    let retObj = {}
+                    result.Objectives.forEach((e, i) => {
+                
+                        retObj[e.value] = {
+                            id: e.value,
+                            list: result.objective_list[i].value,
+                            details: result.objective_list_detail_1[i].ids,
+                            level: result.objective_level[i].value.value,
+                        } 
+                    }) 
+                    return_data = retObj; 
+                    console.log(data )
+            } else {
+                console.log('Invalid username or password');
+            }
+        },
+        error: function (req, status, error) {
+    
+            alert(error);
+        }
+    });
+
+    return return_data 
+}
+
+
+async function wait5Secs() {
+    await setTimeout(function() {
+        console.log(35535353)
+    }, 5000) 
+}
+
+
+function createTable(table_data) {
+
+    var div = document.createElement('div');
+    div.classList.add('overflow-x-auto', 'relative')
+
+
+    var table = document.createElement('table');
+    table.classList.add('w-full', 'text-sm', 'text-left', 'text-gray-500', 'dark:text-gray-400')
+
+    var thead = document.createElement('thead');
+    thead.classList.add('text-xs', 'text-gray-700', 'uppercase', 'bg-gray-50', 'dark:text-gray-400', 'dark:bg-gray-700')
+
+    var tbody = document.createElement('tbody');
+    tbody.classList.add('text-xs', 'text-gray-700', 'uppercase', 'bg-gray-50', 'dark:text-gray-400', 'dark:bg-gray-700')
+ 
+
+    const table_values = Object.values(table_data)
+        Object.keys(table_values[0]).forEach(header => {
+            var th = document.createElement('th');
+            th.scope = "col";
+            th.classList.add('py-3', 'px-6')
+            th.innerHTML = header;
+            thead.appendChild(th)
+        })   
+ 
+
+    table_values.forEach(column => {
+        var tr = document.createElement('tr');
+
+        Object.keys(column).forEach(header => {
+            var td = document.createElement('td');
+            td.scope = "col";
+            td.classList.add('py-3', 'px-6')
+            td.innerHTML = column[header];
+            tr.appendChild(td)
+        })
+        tbody.appendChild(tr)
+        }) 
+    table.appendChild(thead)
+    table.appendChild(tbody)
+    div.appendChild(table)
+
+
+    var img = document.createElement('img');
+
+
+    return div;
+}
+
+const pages = {
+    Home: {
+        menu: {
+            main: {
+                
+            }
+        },
+        data: [
+
+        ]
+    }
+}
+  

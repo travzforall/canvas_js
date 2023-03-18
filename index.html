@@ -12,14 +12,31 @@
         <script src="./index.js"></script>
 </head>
 <body>
-    <div class="w-full bg-gray-400 py-5  border-b-4 border-gray-700">
+    
+    <div class="h-screen">
+        <div data-page="Home" id="main_menu">
+            <div id="level_one" class="w-full flex justify-between"></div>
+            <hr class="my-2">
+            <div id="level_two" class="w-full flex justify-center gap-2 my-2"></div>
+        </div>
+    
+    <div id="main_window"> 
+        <div id="left_aside"></div>
+        <div id="main"></div> 
+        <div id="right_aside"></div> 
+    </div>
+    <div id="footer"></div>
+    </div>
+
+    <div id="list"></div>  
+    
+    <!-- <div class="w-full bg-gray-400 py-5  border-b-4 border-gray-700">
         <div class="flex justify-between w-3/4 mx-auto" id="menu-buttons"></div>
         <button class="btn btn-success">Hi there</button>
          </div>
 
          
 
-         <div id="list"></div>
 
 
 
@@ -38,14 +55,14 @@
 
     <!-- <h4 class="text-center">Home</h4>
     <h4>View</h4> -->
-    <div view></div>
+    <!-- <div view></div> -->
 
     <script>
-        jsMvc.AddRoute(HomeController, 'home/{{Message}}', 'home.html')  
+        // jsMvc.AddRoute(HomeController, 'home/{{Message}}', 'home.html')  
 
-        jsMvc.AddRoute(KeywordsController, 'keywords', 'stat.html') 
-        jsMvc.AddRoute(TimelineController, 'timeline', 'timeline.html') 
-        jsMvc.Initialize()
+        // jsMvc.AddRoute(KeywordsController, 'keywords', 'stat.html') 
+        // jsMvc.AddRoute(TimelineController, 'timeline', 'timeline.html') 
+        // jsMvc.Initialize()
 
 
  
@@ -123,6 +140,6 @@
 
 
 
-    <script type="text/javascript" src="script.js"></script>
+    <!-- <script type="text/javascript" src="script.js"></script> -->
 </body>
 </html>

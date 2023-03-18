@@ -9,20 +9,35 @@
     "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
         </script> 
 
-<script src="./mvc.js"></script>
+   <script src="./index.js"></script>
 </head>
-<body>
-    <div class="w-full bg-gray-400 py-5  border-b-4 border-gray-700">
-        <div class="flex justify-between w-3/4 mx-auto" id="menu-buttons"></div>
-     
+<body>  
+
+         
+
+         <div class="h-screen">
+            <div data-page="Keywords" id="main_menu">
+                <div id="level_one" class="w-full flex justify-between"></div>
+                <hr class="my-2">
+                <div id="level_two" class="w-full flex justify-center gap-2 my-2"></div>
+            </div>
+        
+        <div id="main_window"> 
+            <div id="left_aside"></div>
+            <div id="main">
+             <div id="keyword-bucket" class="rounded-lg bg-gray-400 w-3/4 mx-auto p-5">
+
          </div>
-    <h4 class="text-center">Keywords</h4>
+            </div> 
+            <div id="right_aside"></div> 
+        </div>
+        <div id="footer"></div>
+        </div>
+    
+        <div id="list"></div>  
+    
+        
 
-    keywords {{Keywords}}
-
-         <!-- <div id="keyword-bucket" class="rounded-lg bg-gray-400 w-3/4 mx-auto p-5">
-
-         </div> -->
 
 
     <script type="text/javascript" src="script.js"></script>
